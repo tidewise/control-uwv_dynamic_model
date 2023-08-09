@@ -102,7 +102,7 @@ BOOST_AUTO_TEST_CASE(constant_yaw_velocity )
     BOOST_CHECK_EQUAL( getRoll(vehicle.getPose().orientation), getRoll(orientation));
     BOOST_CHECK_EQUAL( getPitch(vehicle.getPose().orientation), getPitch(orientation));
     //Yaw angle comparison
-    BOOST_CHECK_CLOSE( getYaw(vehicle.getPose().orientation) / getYaw(orientation), 1, 10^-10);
+    BOOST_CHECK_CLOSE( getYaw(vehicle.getPose().orientation) / getYaw(orientation), 1, 1e-4);
 
 }
 
@@ -142,7 +142,7 @@ BOOST_AUTO_TEST_CASE(constant_yaw_velocity_diff_deltaT)
     BOOST_CHECK_EQUAL( getRoll(vehicle.getPose().orientation), getRoll(orientation));
     BOOST_CHECK_EQUAL( getPitch(vehicle.getPose().orientation), getPitch(orientation));
     //Yaw angle comparison
-    BOOST_CHECK_CLOSE( getYaw(vehicle.getPose().orientation) / getYaw(orientation), 1, 10^-10);
+    BOOST_CHECK_CLOSE( getYaw(vehicle.getPose().orientation) / getYaw(orientation), 1, 1e-4);
 
 }
 
@@ -214,10 +214,10 @@ BOOST_AUTO_TEST_CASE( angular )
     for(size_t i=0; i<3; i++)
             BOOST_CHECK_SMALL(error_angles[i], 0.000000000001);
 
-    BOOST_CHECK_CLOSE( getRoll(vehicle.getPose().orientation) / getRoll(final_orientation), 1, 10^-10);
-    BOOST_CHECK_CLOSE( getPitch(vehicle.getPose().orientation) / getPitch(final_orientation), 1, 10^-10);
-    BOOST_CHECK_CLOSE( getYaw(vehicle.getPose().orientation) /  getYaw(final_orientation), 1, 10^-10);
-    BOOST_CHECK_CLOSE(vehicle.getPose().angular_velocity[0] / omega[0], 1, 10^-10 );
+    BOOST_CHECK_CLOSE( getRoll(vehicle.getPose().orientation) / getRoll(final_orientation), 1, 1e-4);
+    BOOST_CHECK_CLOSE( getPitch(vehicle.getPose().orientation) / getPitch(final_orientation), 1, 1e-4);
+    BOOST_CHECK_CLOSE( getYaw(vehicle.getPose().orientation) /  getYaw(final_orientation), 1, 1e-4);
+    BOOST_CHECK_CLOSE(vehicle.getPose().angular_velocity[0] / omega[0], 1, 1e-4 );
 
 }
 
